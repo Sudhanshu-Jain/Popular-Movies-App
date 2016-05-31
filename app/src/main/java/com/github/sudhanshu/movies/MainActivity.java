@@ -1,10 +1,10 @@
-package com.github.ismaeltoe.movies;
+package com.github.sudhanshu.movies;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.github.ismaeltoe.movies.model.Movie;
+import com.github.sudhanshu.movies.model.Movie;
 
 
 public class MainActivity extends AppCompatActivity implements MainActivityFragment.Callback {

@@ -1,9 +1,9 @@
-package com.github.ismaeltoe.movies;
+package com.github.sudhanshu.movies;
 
 import android.content.Context;
 import android.database.Cursor;
 
-import com.github.ismaeltoe.movies.data.MovieContract;
+import com.github.sudhanshu.movies.data.MovieContract;
 
 /**
  * Created by Ismael on 15/06/2015.

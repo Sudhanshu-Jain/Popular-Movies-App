@@ -1,31 +1,30 @@
-package com.github.ismaeltoe.movies.adapters;
+package com.github.sudhanshu.movies.adapters;
 
 import android.content.Context;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.github.ismaeltoe.movies.R;
-import com.github.ismaeltoe.movies.model.Trailer;
+import com.github.sudhanshu.movies.R;
+import com.github.sudhanshu.movies.model.Review;
 
 import java.util.List;
 
 /**
  * Created by Ismael on 10/06/2015.
  */
-public class TrailerAdapter extends BaseAdapter {
+public class ReviewAdapter extends BaseAdapter {
 
     private final Context mContext;
     private final LayoutInflater mInflater;
-    private final Trailer mLock = new Trailer();
+    private final Review mLock = new Review();
 
-    private List<Trailer> mObjects;
+    private List<Review> mObjects;
 
-    public TrailerAdapter(Context context, List<Trailer> objects) {
+    public ReviewAdapter(Context context, List<Review> objects) {
         mContext = context;
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mObjects = objects;
@@ -35,7 +34,7 @@ public class TrailerAdapter extends BaseAdapter {
         return mContext;
     }
 
-    public void add(Trailer object) {
+    public void add(Review object) {
         synchronized (mLock) {
             mObjects.add(object);
         }
@@ -55,7 +54,7 @@ public class TrailerAdapter extends BaseAdapter {
     }
 
     @Override
-    public Trailer getItem(int position) {
+    public Review getItem(int position) {
         return mObjects.get(position);
     }
 
@@ -70,30 +69,28 @@ public class TrailerAdapter extends BaseAdapter {
         ViewHolder viewHolder;
 
         if (view == null) {
-            view = mInflater.inflate(R.layout.item_movie_trailer, parent, false);
+            view = mInflater.inflate(R.layout.item_movie_review, parent, false);
             viewHolder = new ViewHolder(view);
             view.setTag(viewHolder);
         }
 
-        final Trailer trailer = getItem(position);
+        final Review review = getItem(position);
 
         viewHolder = (ViewHolder) view.getTag();
 
-        String yt_thumbnail_url = "http://img.youtube.com/vi/" + trailer.getKey() + "/0.jpg";
-        Glide.with(getContext()).load(yt_thumbnail_url).into(viewHolder.imageView);
-
-        viewHolder.nameView.setText(trailer.getName());
+        viewHolder.authorView.setText(review.getAuthor());
+        viewHolder.contentView.setText(Html.fromHtml(review.getContent()));
 
         return view;
     }
 
     public static class ViewHolder {
-        public final ImageView imageView;
-        public final TextView nameView;
+        public final TextView authorView;
+        public final TextView contentView;
 
         public ViewHolder(View view) {
-            imageView = (ImageView) view.findViewById(R.id.trailer_image);
-            nameView = (TextView) view.findViewById(R.id.trailer_name);
+            authorView = (TextView) view.findViewById(R.id.review_author);
+            contentView = (TextView) view.findViewById(R.id.review_content);
         }
     }
 

@@ -1,4 +1,4 @@
-package com.github.ismaeltoe.movies;
+package com.github.sudhanshu.movies;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

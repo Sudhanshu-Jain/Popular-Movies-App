@@ -1,30 +1,32 @@
-package com.github.ismaeltoe.movies.adapters;
+package com.github.sudhanshu.movies.adapters;
 
 import android.content.Context;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.github.ismaeltoe.movies.R;
-import com.github.ismaeltoe.movies.model.Review;
+import com.bumptech.glide.Glide;
+import com.github.sudhanshu.movies.R;
+import com.github.sudhanshu.movies.model.Movie;
 
 import java.util.List;
 
 /**
  * Created by Ismael on 10/06/2015.
  */
-public class ReviewAdapter extends BaseAdapter {
+public class MovieGridAdapter extends BaseAdapter {
 
     private final Context mContext;
     private final LayoutInflater mInflater;
-    private final Review mLock = new Review();
 
-    private List<Review> mObjects;
+    private final Movie mLock = new Movie();
 
-    public ReviewAdapter(Context context, List<Review> objects) {
+    private List<Movie> mObjects;
+
+    public MovieGridAdapter(Context context, List<Movie> objects) {
         mContext = context;
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mObjects = objects;
@@ -34,7 +36,7 @@ public class ReviewAdapter extends BaseAdapter {
         return mContext;
     }
 
-    public void add(Review object) {
+    public void add(Movie object) {
         synchronized (mLock) {
             mObjects.add(object);
         }
@@ -48,13 +50,20 @@ public class ReviewAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
+    public void setData(List<Movie> data) {
+        clear();
+        for (Movie movie : data) {
+            add(movie);
+        }
+    }
+
     @Override
     public int getCount() {
         return mObjects.size();
     }
 
     @Override
-    public Review getItem(int position) {
+    public Movie getItem(int position) {
         return mObjects.get(position);
     }
 
@@ -69,29 +78,30 @@ public class ReviewAdapter extends BaseAdapter {
         ViewHolder viewHolder;
 
         if (view == null) {
-            view = mInflater.inflate(R.layout.item_movie_review, parent, false);
+            view = mInflater.inflate(R.layout.grid_item_movie, parent, false);
             viewHolder = new ViewHolder(view);
             view.setTag(viewHolder);
         }
 
-        final Review review = getItem(position);
+        final Movie movie = getItem(position);
+
+        String image_url = "http://image.tmdb.org/t/p/w185" + movie.getImage();
 
         viewHolder = (ViewHolder) view.getTag();
 
-        viewHolder.authorView.setText(review.getAuthor());
-        viewHolder.contentView.setText(Html.fromHtml(review.getContent()));
+        Glide.with(getContext()).load(image_url).into(viewHolder.imageView);
+        viewHolder.titleView.setText(movie.getTitle());
 
         return view;
     }
 
     public static class ViewHolder {
-        public final TextView authorView;
-        public final TextView contentView;
+        public final ImageView imageView;
+        public final TextView titleView;
 
         public ViewHolder(View view) {
-            authorView = (TextView) view.findViewById(R.id.review_author);
-            contentView = (TextView) view.findViewById(R.id.review_content);
+            imageView = (ImageView) view.findViewById(R.id.grid_item_image);
+            titleView = (TextView) view.findViewById(R.id.grid_item_title);
         }
     }
-
 }

@@ -1,10 +1,10 @@
-package com.github.ismaeltoe.movies.model;
+package com.github.sudhanshu.movies.model;
 
 import android.database.Cursor;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.github.ismaeltoe.movies.MainActivityFragment;
+import com.github.sudhanshu.movies.MainActivityFragment;
 
 import org.json.JSONException;
 import org.json.JSONObject;

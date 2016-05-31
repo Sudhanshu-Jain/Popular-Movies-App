@@ -1,4 +1,4 @@
-package com.github.ismaeltoe.movies;
+package com.github.sudhanshu.movies;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

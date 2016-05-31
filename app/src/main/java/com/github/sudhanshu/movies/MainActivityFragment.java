@@ -1,4 +1,4 @@
-package com.github.ismaeltoe.movies;
+package com.github.sudhanshu.movies;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -16,9 +16,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-import com.github.ismaeltoe.movies.adapters.MovieGridAdapter;
-import com.github.ismaeltoe.movies.data.MovieContract;
-import com.github.ismaeltoe.movies.model.Movie;
+import com.github.sudhanshu.movies.adapters.MovieGridAdapter;
+import com.github.sudhanshu.movies.data.MovieContract;
+import com.github.sudhanshu.movies.model.Movie;
 
 import org.json.JSONArray;
 import org.json.JSONException;

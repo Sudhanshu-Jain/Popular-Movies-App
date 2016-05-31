@@ -1,4 +1,4 @@
-package com.github.ismaeltoe.movies.model;
+package com.github.sudhanshu.movies.model;
 
 import org.json.JSONException;
 import org.json.JSONObject;

@@ -1,4 +1,4 @@
-package com.github.ismaeltoe.movies.data;
+package com.github.sudhanshu.movies.data;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

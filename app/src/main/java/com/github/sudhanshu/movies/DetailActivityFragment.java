@@ -1,4 +1,4 @@
-package com.github.ismaeltoe.movies;
+package com.github.sudhanshu.movies;
 
 import android.content.ContentValues;
 import android.content.Intent;
@@ -23,12 +23,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.github.ismaeltoe.movies.adapters.ReviewAdapter;
-import com.github.ismaeltoe.movies.adapters.TrailerAdapter;
-import com.github.ismaeltoe.movies.data.MovieContract;
-import com.github.ismaeltoe.movies.model.Movie;
-import com.github.ismaeltoe.movies.model.Review;
-import com.github.ismaeltoe.movies.model.Trailer;
+import com.github.sudhanshu.movies.adapters.ReviewAdapter;
+import com.github.sudhanshu.movies.adapters.TrailerAdapter;
+import com.github.sudhanshu.movies.data.MovieContract;
+import com.github.sudhanshu.movies.model.Movie;
+import com.github.sudhanshu.movies.model.Review;
+import com.github.sudhanshu.movies.model.Trailer;
 import com.linearlistview.LinearListView;
 
 import org.json.JSONArray;
